@@ -20,12 +20,12 @@
 
 ## Hook
 
-### React Hook/Hooks是什麼
+### React Hook/Hooks 是什麼
 
     1. Hook是React 16.8.0版本增加的新特性/語法
     2. 可以讓你在函數組件中使用state以及其他的React特性
 
-### 三個常用的Hook
+### 三個常用的 Hook
 
     1. State Hook: React.useState()
     2. Effect Hook: React.yseEffect()
@@ -77,10 +77,27 @@
 
 ### 組件優化
 
-#### Component的2個問題
+#### Component 的 2 個問題
 
     1. 只要執行setState()即使不改變狀態數據，組件也會重新render()
     2. 只當前組件重新render()，就會重新render子組件 ==> 效率低
     原因：Component中的shouldComponentUpdate()總是回傳true
     效率高做法：
         只有當組件的state或props數據發生改變時才會重新render
+
+#### render props
+
+    如何向組件內部動態傳入帶內容的結構(標籤)?
+    Vue:
+        使用slot技術，也就是通過組件標籤體傳入結構 <A><B /><A />
+    React:
+        1. 使用children props: 通過組件標籤體傳入結構
+            <A>
+                <B />
+            </A>
+            {this.props.children}
+            問題：如果B組件需要A組件內的數據 => 做不到
+        2. 使用render props: 通過組件標籤屬性傳入結構，一般用render函數屬性
+            <A render={(data) => <C data={data}></C>}></A>
+            A組件: {this.props.render(內部state數據)}
+            C組件: 讀取A組件傳入的數據顯示 {this.props.data}
