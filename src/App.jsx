@@ -5,7 +5,8 @@ import React, { Component } from 'react';
 // import Demo from './components/4_Fragment'
 // import Demo from './components/5_Context'
 // import Demo from './components/6_Optimize'
-import Demo from './components/7_renderProps'
+// import Demo from './components/7_renderProps'
+import Demo from './components/8_ErrorBoundary'
 
 class App extends Component {
   render() {

@@ -101,3 +101,31 @@
             <A render={(data) => <C data={data}></C>}></A>
             A組件: {this.props.render(內部state數據)}
             C組件: 讀取A組件傳入的數據顯示 {this.props.data}
+
+### 錯誤邊界
+
+    理解: 錯誤邊界(Error boundary): 用來捕獲後代組件錯誤，渲染出備用頁面
+    特點：只能捕獲後代組件生命週期產生的錯誤，不能捕獲自己組件產生的錯誤和其他組件合成事件、定時器中產生的錯誤
+    使用方式：
+        getDerivedStateFromError配合componentDidCatch
+
+### 組件通信方式總結
+
+    組件的關係：
+        父子組件
+        兄弟組件(非嵌套組件)
+        祖孫組件(跨級組件)
+    幾種通信方式：
+        props:
+            children props
+            render props
+        消息訂閱-發布
+            pubs-sub、event等等
+        集中式管理
+            redux, dva等等
+        conText
+            生產者-消費者
+    比較好的搭配方式
+        父子組件：props
+        兄弟組件(非嵌套組件)：消息訂閱-發布、集中式管理
+        祖孫組件(跨級組件)：消息訂閱-發布、集中式管理、conText(開發用得少，封裝插件用得多)
